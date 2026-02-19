@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <head>
+    <script>
+	  function algus(){
+         let g=tahvel.getContext("2d");
+		 g.fillStyle="green";
+         g.fillRect(50, 60, 10, 10);
+         g.fillText("ABC", 50, 90);	
+         g.beginPath();
+		 g.moveTo(50, 110);
+		 g.lineTo(90, 110);
+		 g.lineTo(100, 120);
+         g.stroke();
+         g.strokeStyle="blue";		 
+		 g.beginPath();
+		 g.arc(70, 130, 20, 0, 2*Math.PI, false);
+		 g.stroke();
+	  }
+	</script>
+  </head>
+  <body onload="algus()">
+     <canvas id="tahvel" width="600" height="400"></canvas>
+  </body>
+</html>

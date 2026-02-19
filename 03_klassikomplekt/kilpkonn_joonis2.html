@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+  <head>
+    <script>
+       class Kilpkonn{
+         static suunad=[[1, 0], [0, -1], [-1, 0], [0, 1]];
+         suund=0;
+		 koef=10;
+         constructor(x, y, g){
+           this.x=x; this.y=y; this.g=g;
+		   this.joonista();
+         }
+		 joonista(){
+		   this.g.clearRect(0, 0, tahvel.width, tahvel.height);
+		   this.g.fillRect(this.x*this.koef-this.koef/2, 
+		      this.y*this.koef-this.koef/2, this.koef, this.koef);
+		   this.g.beginPath();
+		   this.g.moveTo(this.x*this.koef, this.y*this.koef);
+		   let s=Kilpkonn.suunad[this.suund];
+		   this.g.lineTo((this.x+s[0])*this.koef, (this.y+s[1])*this.koef);
+		   this.g.stroke();
+		   
+		   //Kuvage ka liikumissuund
+		 }
+         tekstina(){
+          return this.x+", "+this.y+"; suund "+this.suund;
+         }
+         paremale(){
+            this.suund=(this.suund+1) % Kilpkonn.suunad.length;
+			this.joonista();
+         }
+         edasi(){		   
+            let samm=Kilpkonn.suunad[this.suund];
+            this.x+=samm[0];
+            this.y+=samm[1];
+			this.joonista();
+         }
+
+       }
+       let k1;
+       function algus(){
+	      k1=new Kilpkonn(3, 5, tahvel.getContext("2d"));
+          s1.innerText=k1.tekstina()
+       }
+       function liigu(){
+          k1.edasi();
+          s1.innerText=k1.tekstina()
+       }
+       function keera(){
+          k1.paremale();
+          s1.innerText=k1.tekstina()
+       }
+    </script>
+  </head>
+  <body onload="algus()">
+    <span id="s1"></span>
+    <input type="button" value="liigu" onclick="liigu()" />
+    <input type="button" value="paremale" onclick="keera()" /><br />
+    <canvas id="tahvel" width="600" height="400"></canvas>
+  </body>
+  </body>
+</html>
