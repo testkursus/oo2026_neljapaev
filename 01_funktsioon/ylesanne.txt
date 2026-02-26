@@ -6,3 +6,7 @@ https://www.tlu.ee/~jaagup/andmed/ilm/harkutund.txt
 * Koosta alamprogramm. Sisendiks kuu number, väljundiks
   selle kuu sademete summa. 
   
+* Tutvuge oma zone konto võimalustega
+* Katsuge üles panna rakendus, kus kasutaja sisestab/valib kuu. 
+  Selle kuu kohta arvutatakse ja väljastatakse 2014. aasta sademete summa Tallinn-Harku jaamas
+  
