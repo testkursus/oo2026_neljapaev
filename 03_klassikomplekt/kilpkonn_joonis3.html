@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+  <head>
+    <script>
+       class Kilpkonn{
+         static suunad=[[1, 0], [0, -1], [-1, 0], [0, 1]];
+         suund=0;
+		 koef=10;
+         constructor(x, y, g, peremees){
+           this.x=x; this.y=y; this.g=g;
+		   this.peremees=peremees;
+		   this.peremees.joonista();
+         }
+		 joonista(){
+		   this.g.fillRect(this.x*this.koef-this.koef/2, 
+		      this.y*this.koef-this.koef/2, this.koef, this.koef);
+		   this.g.beginPath();
+		   this.g.moveTo(this.x*this.koef, this.y*this.koef);
+		   let s=Kilpkonn.suunad[this.suund];
+		   this.g.lineTo((this.x+s[0])*this.koef, (this.y+s[1])*this.koef);
+		   this.g.stroke();
+		 }
+         tekstina(){
+          return this.x+", "+this.y+"; suund "+this.suund;
+         }
+         paremale(){
+            this.suund=(this.suund+1) % Kilpkonn.suunad.length;
+			this.peremees.joonista();
+         }
+         edasi(){		   
+            let samm=Kilpkonn.suunad[this.suund];
+            this.x+=samm[0];
+            this.y+=samm[1];
+			this.peremees.joonista();
+         }
+
+       }
+	   class Konnahaldus{
+	      kilpkonnad=[];
+		  g=tahvel.getContext("2d");
+		  lisaKilpkonn(x, y){
+		     let uus=new Kilpkonn(x, y, this.g, this)
+			 this.kilpkonnad.push(uus);
+			 return uus;
+		  }
+		  joonista(){
+		     this.g.clearRect(0, 0, 600, 400);
+			 for(let k of this.kilpkonnad){
+			    k.joonista();
+			 }
+		  }
+	   }	
+//https://oop2026.jaagupkippar.eu/klassid1/kilpkonn_joonis3.html	   
+	   
+       let k1, k2, kh;
+       function algus(){
+	      kh=new Konnahaldus();
+		  k1=kh.lisaKilpkonn(3, 5);
+       }
+       function liigu(){
+          k1.edasi();
+       }
+       function keera(){
+          k1.paremale();
+       }
+    </script>
+  </head>
+  <body onload="algus()">
+    <span id="s1"></span>
+    <input type="button" value="liigu" onclick="liigu()" />
+    <input type="button" value="paremale" onclick="keera()" /><br />
+    <canvas id="tahvel" width="600" height="400"></canvas>
+  </body>
+  </body>
+</html>

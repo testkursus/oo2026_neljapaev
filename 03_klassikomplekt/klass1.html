@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+  <head>
+    <script>
+       class Kilpkonn{
+         constructor(x, y){
+           this.x=x; this.y=y;
+         }
+         tekstina(){
+          return this.x+", "+this.y;
+         }
+       }
+       let k1=new Kilpkonn(3, 5);
+       function algus(){
+          s1.innerText=k1.tekstina()
+       }
+    </script>
+  </head>
+  <body onload="algus()">
+    <span id="s1"></span>
+  </body>
+</html>
