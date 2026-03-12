@@ -1,0 +1,11 @@
+Juhis
+
+Koosta uus Adderi alamklass, mis toimib nõnda, et eksemplari loomisel antakse sinna faili nimi andmete hoidmiseks
+Igal lisamisel kirjutatakse faili kogus ning lisamise kellaaeg
+Summa küsimisel arvutatakse andmed failist kokku. 
+Kasutatakse sama faili andmeid ka korduval käivitamisel. 
+
+Näitprogramm:
+Kasutajalt küsitakse lauseid. 
+Iga lause sõnad salvestatakse CharCounter + uue Adderi abil faili.
+Eraldi käsu peale saab küsida, mitme tähe andmed on salvestatud. 
