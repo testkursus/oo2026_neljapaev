@@ -1,0 +1,5 @@
+Hulknurk
+
+* Korrapärase hulknurgaga tegelevale klassile antakse keskpunkti koordinaadid, tipu kaugus keskpunktist ning tippude arv. Käsuga saab küsida tippude koordinaadid ning hulknurga pindala.
+* Vastav hulknurk joonistatakse ekraanile. 
+* Kasutajal on slaider nurkade arvu määramiseks. Kuvatakse vastav hulknurk ja selle arvuline pindala. Kõrvale joonistatakse tulp, mille kõrgus sõltub hulknurga pindalast. 
